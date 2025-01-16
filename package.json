@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "scripts": {
     "heroku-postbuild": "cd server && npx knex migrate:latest",
+    "migrate:make": "cd server && npx knex migrate:make $1",
     "client": "cd client && yarn start",
-    "server": "cd server && nodemon server.js",
+    "server": "cd server && bun --watch server.js",
     "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\"",
     "test": "cd server && jest",
     "test:watch": "cd server && jest --watch",
@@ -15,13 +16,16 @@
     "dotenv": "^8.2.0",
     "express": "^4.16.4",
     "jest": "^24.9.0",
-    "knex": "^0.20.5",
+    "knex": "^3.1.0",
     "lodash": "^4.17.15",
     "nodemon": "^2.0.2",
-    "pg": "^7.14.0",
-    "supertest": "^4.0.2"
+    "pg": "^8.13.1",
+    "supertest": "^4.0.2",
+    "uuid": "^11.0.5",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@types/express": "^4.17.21",
     "concurrently": "^4.0.1"
   }
 }
